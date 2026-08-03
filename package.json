@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node server.js",
     "build": "exit 0",
-    "test": "nyc --reporter=cobertura --reporter=html --reporter=text mocha --timeout 10000 --reporter mocha-multi-reporters --reporter-options configFile=test/config.json"
+    "test": "nyc --reporter=cobertura --reporter=html --reporter=text mocha --timeout 10000 --require test/helpers.js \"test/**/*.js\""
   },
   "keywords": [
     "azure",
@@ -28,11 +28,13 @@
     "jsonwebtoken": "^9.0.3"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^5.2.0",
-    "mocha-junit-reporter": "^1.18.0",
-    "mocha-multi-reporters": "^1.1.7",
-    "nyc": "^13.3.0",
-    "supertest": "^3.4.2"
+    "chai": "^4.5.0",
+    "mocha": "^11.8.0",
+    "nyc": "^18.0.0",
+    "supertest": "^7.2.2"
+  },
+  "overrides": {
+    "diff": "^8.0.3",
+    "serialize-javascript": "^7.0.5"
   }
 }
