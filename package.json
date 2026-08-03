@@ -1,7 +1,7 @@
 {
-  "name": "calculator",
+  "name": "authenticated-notes-api",
   "version": "1.0.0",
-  "description": "Calculator",
+  "description": "REST API with JWT authentication and user-owned notes",
   "repository": {
     "type": "git",
     "url": "https://github.com/azure-pipelines-samples/node.js"
@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node server.js",
     "build": "exit 0",
-    "test": "nyc --reporter=cobertura --reporter=html --reporter=text mocha --timeout 10000 --reporter mocha-multi-reporters --reporter-options configFile=test/config.json"
+    "test": "mocha --require test/helpers.js \"test/**/*.js\""
   },
   "keywords": [
     "azure",
@@ -23,14 +23,16 @@
   "author": "Edward Thomson <ethomson@microsoft.com>",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.16.4"
+    "bcryptjs": "^3.0.3",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^5.2.0",
+    "chai": "^6.2.2",
+    "mocha": "^11.8.0",
     "mocha-junit-reporter": "^1.18.0",
     "mocha-multi-reporters": "^1.1.7",
     "nyc": "^13.3.0",
-    "supertest": "^3.4.2"
+    "supertest": "^7.2.2"
   }
 }
